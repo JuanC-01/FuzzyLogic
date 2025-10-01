@@ -1,0 +1,25 @@
+[
+  {"Rojo": "Bajo", "Verde": "Bajo", "Azul": "Bajo", "OUTPUT": "Azul"},
+  {"Rojo": "Bajo", "Verde": "Bajo", "Azul": "MedioBajo", "OUTPUT": "Cian"},
+  {"Rojo": "Bajo", "Verde": "Bajo", "Azul": "MedioAlto", "OUTPUT": "Verde"},
+  {"Rojo": "Bajo", "Verde": "Bajo", "Azul": "Alto", "OUTPUT": "VerdeLima"},
+
+  {"Rojo": "Bajo", "Verde": "MedioBajo", "Azul": "Bajo", "OUTPUT": "Amarillo"},
+  {"Rojo": "Bajo", "Verde": "MedioBajo", "Azul": "MedioBajo", "OUTPUT": "Naranja"},
+  {"Rojo": "Bajo", "Verde": "MedioBajo", "Azul": "MedioAlto", "OUTPUT": "Rojo"},
+  {"Rojo": "Bajo", "Verde": "MedioBajo", "Azul": "Alto", "OUTPUT": "Magenta"},
+
+  {"Rojo": "Bajo", "Verde": "MedioAlto", "Azul": "Bajo", "OUTPUT": "Azul"},
+  {"Rojo": "Bajo", "Verde": "MedioAlto", "Azul": "MedioBajo", "OUTPUT": "Cian"},
+  {"Rojo": "Bajo", "Verde": "MedioAlto", "Azul": "MedioAlto", "OUTPUT": "Verde"},
+  {"Rojo": "Bajo", "Verde": "MedioAlto", "Azul": "Alto", "OUTPUT": "VerdeLima"},
+
+  {"Rojo": "Bajo", "Verde": "Alto", "Azul": "Bajo", "OUTPUT": "Amarillo"},
+  {"Rojo": "Bajo", "Verde": "Alto", "Azul": "MedioBajo", "OUTPUT": "Naranja"},
+  {"Rojo": "Bajo", "Verde": "Alto", "Azul": "MedioAlto", "OUTPUT": "Rojo"},
+  {"Rojo": "Bajo", "Verde": "Alto", "Azul": "Alto", "OUTPUT": "Magenta"},
+
+  {"Rojo": "MedioBajo", "Verde": "Bajo", "Azul": "Bajo", "OUTPUT": "Azul"},
+  {"Rojo": "MedioBajo", "Verde": "Bajo", "Azul": "MedioBajo", "OUTPUT": "Cian"},
+  {"Rojo": "MedioBajo", "Verde": "Bajo", "Azul": "MedioAlto", "OUTPUT": "Verde"}
+]
