@@ -77,7 +77,7 @@ def build_tab_io_with_selector():
 
 
 def build_tab_mf_config():
-    """Pestaña 2: Configuración de MF (SIN CAMBIOS)"""
+    """Pestaña 2: Configuración de MF"""
     return dcc.Tab(label='2. Configuración de MF', children=[
         # ... (Contenido de la configuración de MF)
         html.Div([
@@ -112,9 +112,9 @@ def build_tab_rules_viewer():
 
 
 def create_layout():
-    """Ensambla todos los módulos en una estructura de pestañas (solo 2 ahora)."""
+    """Ensambla todos los módulos en una estructura de pestañas."""
     return html.Div([
-        html.H1("Clasificador Fuzzy Interactivo (Probador de Modelos)", style={'textAlign': 'center', 'padding': '10px'}),
+        html.H1("Clasificador Fuzzy", style={'textAlign': 'center', 'padding': '10px'}),
         dcc.Tabs(id="tabs", value='tab-1', children=[
             build_tab_io_with_selector(),      # NUEVA PESTAÑA 1 (Fusionada)
             build_tab_mf_config(),             # PESTAÑA 2 (MF)
