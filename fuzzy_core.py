@@ -43,56 +43,83 @@ def create_mf(mf_type, points, universe):
 
 def get_output_functions(mf_type_selected="Triangular (trimf)"):
     """Genera las funciones de salida (consequents) para todos los colores del sistema RGB difuso."""
+    
     def make_mf(a, b, c):
         if "Trapezoidal" in mf_type_selected:
-            p1, p2, p3, p4 = a, b - 3, b + 3, c
+            p1, p2, p3, p4 = a, b - 5, b + 5, c 
             if p2 < p1: p2 = p1
             if p3 > p4: p3 = p4
             return fuzz.trapmf(X_OUTPUT, [p1, p2, p3, p4])
         else:
             return fuzz.trimf(X_OUTPUT, [a, b, c])
 
-    return {
-        # Tonos oscuros
-        'Negro': fuzz.trimf(X_OUTPUT, [0, 0, 5]),
-        'AzulOscuro': fuzz.trimf(X_OUTPUT, [5, 10, 20]),
-        'VerdeOscuro': fuzz.trimf(X_OUTPUT, [10, 15, 25]),
-        'RojoOscuro': fuzz.trimf(X_OUTPUT, [15, 20, 30]),
-        'NaranjaOscuro': fuzz.trimf(X_OUTPUT, [20, 25, 35]),
-        'AmarilloOscuro': fuzz.trimf(X_OUTPUT, [25, 30, 40]),
-        'CianOscuro': fuzz.trimf(X_OUTPUT, [30, 35, 45]),
-        'MagentaOscuro': fuzz.trimf(X_OUTPUT, [35, 40, 50]),
+    # DEFINICIÓN COMPLETA CON TODAS TUS ETIQUETAS
+    color_definitions = {
+        # Tonos Oscuros/Bajos
+        'Negro': (0, 0, 5),
+        'AzulOscuro': (5, 10, 20),
+        'VerdeOscuro': (15, 20, 30),
+        'RojoOscuro': (25, 30, 40),
+        'NaranjaOscuro': (30, 35, 45),
+        'AmarilloOscuro': (35, 40, 50),
+        'CianOscuro': (40, 45, 55),
+        'MagentaOscuro': (45, 50, 60),
         
-        # Colores base
-        'Azul': fuzz.trimf(X_OUTPUT, [40, 45, 55]),
-        'Cian': fuzz.trimf(X_OUTPUT, [50, 55, 65]),
-        'Verde': fuzz.trimf(X_OUTPUT, [55, 60, 70]),
-        'Amarillo': fuzz.trimf(X_OUTPUT, [60, 65, 75]),
-        'Naranja': fuzz.trimf(X_OUTPUT, [65, 70, 80]),
-        'Rojo': fuzz.trimf(X_OUTPUT, [70, 75, 85]),
-        'Magenta': fuzz.trimf(X_OUTPUT, [75, 80, 90]),
-        'Blanco': fuzz.trimf(X_OUTPUT, [80, 85, 95]),
-
-        # Tonos claros y brillantes
-        'AzulBrillante': fuzz.trimf(X_OUTPUT, [85, 90, 95]),
-        'CianBrillante': fuzz.trimf(X_OUTPUT, [85, 90, 100]),
-        'VerdeBrillante': fuzz.trimf(X_OUTPUT, [85, 90, 100]),
-        'AmarilloBrillante': fuzz.trimf(X_OUTPUT, [85, 95, 100]),
-        'RojoBrillante': fuzz.trimf(X_OUTPUT, [85, 95, 100]),
-        'MagentaBrillante': fuzz.trimf(X_OUTPUT, [85, 95, 100]),
-        'BlancoBrillante': fuzz.trimf(X_OUTPUT, [90, 100, 100]),
+        # Colores Base/Medios
+        'Azul': (50, 55, 65),
+        'Cian': (55, 60, 70),
+        'Verde': (60, 65, 75),
+        'Amarillo': (65, 70, 80),
+        'Naranja': (70, 75, 85),
+        'Rojo': (75, 80, 90),
+        'Magenta': (80, 85, 95),
         
-        # Tonos intermedios y especiales
-        'AmarilloClaro': fuzz.trimf(X_OUTPUT, [70, 80, 90]),
-        'NaranjaClaro': fuzz.trimf(X_OUTPUT, [70, 80, 90]),
-        'MagentaClaro': fuzz.trimf(X_OUTPUT, [70, 80, 90]),
-        'CianClaro': fuzz.trimf(X_OUTPUT, [70, 80, 90]),
-        'Rosa': fuzz.trimf(X_OUTPUT, [75, 85, 95]),
-        'VerdeLima': fuzz.trimf(X_OUTPUT, [65, 75, 85]),
-        'BlancoApagado': fuzz.trimf(X_OUTPUT, [60, 70, 80]),
+        # Tonos Claros/Brillantes
+        'AmarilloClaro': (70, 75, 85),
+        'NaranjaClaro': (75, 80, 90),
+        'CianClaro': (78, 83, 93),
+        'MagentaClaro': (82, 87, 97),
+        'Rosa': (70, 80, 90),
+        'BlancoApagado': (65, 75, 85),
+        'Blanco': (85, 90, 98),
+        
+        'AzulBrillante': (85, 90, 95),
+        'CianBrillante': (88, 93, 98),
+        'VerdeBrillante': (88, 93, 98),
+        'AmarilloBrillante': (90, 95, 100),
+        'RojoBrillante': (90, 95, 100),
+        'MagentaBrillante': (92, 97, 100),
+        'BlancoBrillante': (95, 100, 100),
+        
+        # Colores personalizados de tus reglas
+        'VerdeAzulado': (55, 65, 75),
+        'VerdeAzuladoBrillante': (75, 85, 95),
+        'Gris': (40, 50, 60),
+        'Lavanda': (65, 75, 85),
+        'AmarilloVerde': (60, 70, 80),
+        'AmarilloVerdeClaro': (70, 80, 90),
+        'RojoMagenta': (70, 80, 90),
+        'Salmon': (75, 85, 95),
+        'LavandaClaro': (75, 85, 95),
+        'RosaClaro': (80, 90, 100),
+        'RosaBrillante': (85, 95, 100),
+        'BlancoAzulado': (85, 92, 100),
+        'AmarilloVerdeBrillante': (85, 95, 100),
+        'BlancoVerde': (88, 95, 100),
+        'RojoMagentaBrillante': (90, 97, 100),
+        'Melon': (80, 90, 100),
+        'AmarilloClaroBrillante': (85, 95, 100),
+        'BlancoAmarillento': (90, 97, 100),
+        'BlancoPuro': (98, 100, 100),
+        'NaranjaBrillante': (85, 92, 100),  # <-- ESTA FALTABA
     }
-
-
+    
+    # Crear las funciones de pertenencia
+    output_funcs = {}
+    for color_name, (a, b, c) in color_definitions.items():
+        output_funcs[color_name] = make_mf(a, b, c)
+    
+    return output_funcs
 # --- FUNCIÓN PRINCIPAL DEL SISTEMA FUZZY ---
 def create_system_from_json(rules_filename, R_val, G_val, B_val, mf_type_selected):
     """
@@ -115,7 +142,7 @@ def create_system_from_json(rules_filename, R_val, G_val, B_val, mf_type_selecte
             var[name] = func
 
     # Funciones de salida
-    for label, mf in get_output_functions().items():
+    for label, mf in get_output_functions(mf_type_selected).items():
         Clasificacion[label] = mf
 
     # 2. Cargar reglas desde archivo usando rules_loader
@@ -135,8 +162,8 @@ def create_system_from_json(rules_filename, R_val, G_val, B_val, mf_type_selecte
 
     try:
         color_simulador.compute()
-    except Exception:
+    except Exception as e:
+        print(f"Error en computación fuzzy: {e}")
         return None, None
 
     return color_simulador.output.get('ColorOutput'), color_simulador
-
